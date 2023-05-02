@@ -1,1 +1,25 @@
-<p>listado-users works!</p>
+ <!-- <p>listado-users works!</p><br> -->
+<button class="btn btn-primary" (click)="logaut()" >Cerrar Cesión</button>
+<br><br> 
+<div class="content">
+    <div class="row">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-8 col-sm-8 col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Foto</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let user of users">
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><img width="50" height="50" src="{{user.fotoUser}}" alt=""></td>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2 col-sm-2"></div>
+    </div>
+</div>

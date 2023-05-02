@@ -1,12 +1,38 @@
 <main>
-<div>
-    Login <br><br>
+    <div>
+        <span *ngIf="errorMessage"><b style="color: red;">{{ errorMessage }}</b></span><br>
+        Login <br>
+        <ng-container *ngIf="loading">
+            <b>Cargando</b>
+          </ng-container>
+        <br>
 
-    <label for="">Usuario</label><br>
-    <input type="text"><br><br>
-    <label for="">Password</label><br>
-    <input type="password"><br><br>
 
 
-</div>
+
+        <form [formGroup]="myForm" (ngSubmit)="login()" autocomplete="off">
+            <label for="">Usuario</label><br>
+            <input type="text"
+                    formControlName="email"
+                    placeholder="usuario"         
+            ><br>
+            <span *ngIf="myForm.controls['email'].getError('required') && myForm.controls['email'].touched" >
+                 <b style="color: red;">Este campo es requerido</b>
+            </span>
+            <span  *ngIf="myForm.controls['email'].getError('minlength') && myForm.controls['email'].touched">
+                <b style="color: red;">Este campo requiere mínimo 3 letras</b>
+            </span>
+                     <br>
+            <label for="">Password</label><br>
+            <input type="password"
+            formControlName="password"><br>
+            <span *ngIf="myForm.controls['password'].getError('required') && myForm.controls['password'].touched" >
+                <b style="color: red;">Este campo es requerido</b>
+           </span>
+            <br>
+            <button class="btn btn-primary">Iniciar</button>
+        </form>
+
+
+    </div>
 </main>
