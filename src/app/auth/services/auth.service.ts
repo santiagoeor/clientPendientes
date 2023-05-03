@@ -10,6 +10,8 @@ import { Auth } from "../interfaces/auth.interface";
 })
 export class AuthService {
 
+  public isAuthenticated: boolean = false;
+
   constructor( private http:HttpClient ) { }
 
   
@@ -22,8 +24,16 @@ export class AuthService {
   }
 
   logout(){
-    return this.http.post<any>('https://apilaravel.ventas.fun/api/v1/logout', {}).subscribe(response => {});
+    return this.http.post<any>('https://apilaravel.ventas.fun/api/v1/logout', {}).subscribe(response => {
+      this.isAuthenticated = false;
+    });
   }
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
+  }
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

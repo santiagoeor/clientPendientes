@@ -37,6 +37,7 @@ export class LoginComponent {
 
     if(response){
       localStorage.setItem('token', JSON.stringify(response));
+      this.restService.isAuthenticated = true;
       this.router.navigate(['./users']);
     }else{
       this.errorMessage = 'Credenciales inválidas';
