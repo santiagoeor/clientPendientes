@@ -17,4 +17,8 @@ export class UserService {
     return this.http.get(`https://apilaravel.ventas.fun/api/v1/user/search?search=${termino}`);
   }
 
+  save(data:FormData):Observable<any>{
+    return this.http.post(`https://apilaravel.ventas.fun/api/v1/user`, data);
+  }
+
 }

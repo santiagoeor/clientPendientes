@@ -6,6 +6,8 @@ import { EliminarUserComponent } from './pages/eliminar-user/eliminar-user.compo
 import { ListadoUsersComponent } from './pages/listado-users/listado-users.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -14,12 +16,14 @@ import { FormsModule } from '@angular/forms';
     CrearUserComponent,
     EditarUserComponent,
     EliminarUserComponent,
-    ListadoUsersComponent
+    ListadoUsersComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

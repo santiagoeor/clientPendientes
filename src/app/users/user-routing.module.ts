@@ -2,13 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ListadoUsersComponent } from './pages/listado-users/listado-users.component';
+import { CrearUserComponent } from './pages/crear-user/crear-user.component';
+import { EditarUserComponent } from './pages/editar-user/editar-user.component';
+import { EliminarUserComponent } from './pages/eliminar-user/eliminar-user.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       { path: 'listado', component: ListadoUsersComponent },
-      { path: '**', redirectTo: 'listado' }
+      {path: 'crearUser', component: CrearUserComponent },
+      { path: 'editarUser', component: EditarUserComponent },
+      { path: 'eliminarUser', component: EliminarUserComponent },
+      { path: '**', redirectTo: 'listado' },
     ]
   }
 ]

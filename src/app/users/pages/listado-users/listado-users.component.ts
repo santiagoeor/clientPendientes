@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/users.interface';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 
@@ -18,15 +16,8 @@ export class ListadoUsersComponent {
 
   constructor( 
     private restService: UserService,
-    private autservice: AuthService,
-    private router:Router
      ){}
- 
-  logaut(){
-    localStorage.removeItem('token');
-    this.autservice.logout();
-    this.router.navigate(['./login']);
-  }
+
 
   ngOnInit(): void{
 

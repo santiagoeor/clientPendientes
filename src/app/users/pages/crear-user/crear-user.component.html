@@ -1,1 +1,66 @@
-<p>crear-user works!</p>
+<app-home></app-home>
+<div class="row">
+    <div class="col-md-2 col-sm-2 col-2"></div>
+    <div class="col-md-8 col-sm-8 col-8">
+        <ng-container *ngIf="mensaje">
+        <div class='alert alert-success'>
+            {{ mensajecontent }}
+         </div>
+        </ng-container>
+        <form [formGroup]="myForm" (ngSubmit)="save()" autocomplete="off">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" 
+                            class="form-control" 
+                            placeholder=""
+                            formControlName="name">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>correo</label>
+                            <input type="email"
+                             class="form-control"
+                              placeholder=""
+                              formControlName="email">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password"
+                             class="form-control"
+                              placeholder=""
+                              formControlName="password">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Foto</label>
+                            <input type="file" 
+                            class="form-control" 
+                            placeholder=""
+                            formControlName="fotoUser"
+                            (change)="getFile($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <br>
+                    <ng-container *ngIf="loading">
+                        <b>Guardando usuario</b>
+                      </ng-container>
+                      <ng-container *ngIf="!loading">
+                        <!-- <b>Cargando</b> -->
+                        <button class="btn btn-primary">Registrar</button>
+                      </ng-container>
+                     
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2 col-sm-2 col-2"></div>
+</div>
