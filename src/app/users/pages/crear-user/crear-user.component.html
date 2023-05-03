@@ -18,6 +18,9 @@
                             placeholder=""
                             formControlName="name">
                         </div>
+                        <span *ngIf="myForm.controls['name'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-6">
                         <div class="form-group">
@@ -27,6 +30,12 @@
                               placeholder=""
                               formControlName="email">
                         </div>
+                        <span *ngIf="myForm.controls['email'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
+                       <span  *ngIf="myForm.controls['email'].getError('minlength') && myForm.controls['email'].touched">
+                           <b style="color: red;">Este campo requiere mínimo 3 letras</b>
+                       </span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-6">
                         <div class="form-group">
@@ -36,6 +45,9 @@
                               placeholder=""
                               formControlName="password">
                         </div>
+                        <span *ngIf="myForm.controls['password'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-6">
                         <div class="form-group">
@@ -46,6 +58,9 @@
                             formControlName="fotoUser"
                             (change)="getFile($event)">
                         </div>
+                        <span *ngIf="myForm.controls['fotoUser'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
                     </div>
                 </div>
                 <div class="card-footer">
