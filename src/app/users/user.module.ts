@@ -5,6 +5,7 @@ import { EditarUserComponent } from './pages/editar-user/editar-user.component';
 import { EliminarUserComponent } from './pages/eliminar-user/eliminar-user.component';
 import { ListadoUsersComponent } from './pages/listado-users/listado-users.component';
 import { UserRoutingModule } from './user-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { UserRoutingModule } from './user-routing.module';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule
   ]
 })
 export class UserModule { }

@@ -5,6 +5,12 @@
     <div class="row">
         <div class="col-md-2 col-sm-2"></div>
         <div class="col-md-8 col-sm-8 col-12">
+            <!-- <form (ngSubmit)="search()" #searchForm="ngForm">
+                <input type="text" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+              </form> -->
+              <label for="">Buscador</label><br>
+              <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()">
             <table class="table">
                 <thead>
                     <tr>

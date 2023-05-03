@@ -12,4 +12,9 @@ export class UserService {
   users():Observable<any>{
     return this.http.get(`https://apilaravel.ventas.fun/api/v1/users`);
   }
+
+  search(termino:string|number):Observable<any>{
+    return this.http.get(`https://apilaravel.ventas.fun/api/v1/user/search?search=${termino}`);
+  }
+
 }
