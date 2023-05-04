@@ -17,12 +17,20 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Foto</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let user of users">
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
                     <td><img width="50" height="50" src="{{user.fotoUser}}" alt=""></td>
+                    <td>
+                        <!-- <button class="btn" >Edit</button> -->
+                        <a  [routerLink]="['/users/editarUser', user.id]">Edit</a>
+                        <a  [routerLink]="['/users/eliminarUser', user.id]">Elim</a>
+                    
+                    
+                
                 </tbody>
             </table>
         </div>

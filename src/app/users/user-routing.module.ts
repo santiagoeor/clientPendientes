@@ -12,8 +12,8 @@ const routes: Routes = [
     children: [
       { path: 'listado', component: ListadoUsersComponent },
       {path: 'crearUser', component: CrearUserComponent },
-      { path: 'editarUser', component: EditarUserComponent },
-      { path: 'eliminarUser', component: EliminarUserComponent },
+      { path: 'editarUser/:id', component: EditarUserComponent },
+      { path: 'eliminarUser/:id', component: EliminarUserComponent },
       { path: '**', redirectTo: 'listado' },
     ]
   }

@@ -1,2 +1,82 @@
 <app-home></app-home>
-<p>editar-user works!</p>
+<div class="row">
+    <div class="col-md-2 col-sm-2 col-2"></div>
+    <div class="col-md-8 col-sm-8 col-8">
+        <ng-container *ngIf="mensaje">
+        <div class='alert alert-success'>
+            {{ mensajecontent }}
+         </div>
+        </ng-container>
+        <form [formGroup]="myForm" (ngSubmit)="update()" autocomplete="off">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" 
+                            class="form-control" 
+                            placeholder=""
+                            formControlName="name">
+                        </div>
+                        <span *ngIf="myForm.controls['name'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>correo</label>
+                            <input type="email"
+                             class="form-control"
+                              placeholder=""
+                              formControlName="email">
+                        </div>
+                        <span *ngIf="myForm.controls['email'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
+                       <span  *ngIf="myForm.controls['email'].getError('minlength') && myForm.controls['email'].touched">
+                           <b style="color: red;">Este campo requiere mínimo 3 letras</b>
+                       </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password"
+                             class="form-control"
+                              placeholder=""
+                              formControlName="password">
+                        </div>
+                        <span *ngIf="myForm.controls['password'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Foto</label>
+                            <input type="file" 
+                            class="form-control" 
+                            placeholder=""
+                            formControlName="fotoUser"
+                            (change)="getFile($event)">
+                        </div>
+                        <span *ngIf="myForm.controls['fotoUser'].getError('required') && myForm.controls['email'].touched" >
+                            <b style="color: red;">Este campo es requerido</b>
+                       </span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <br>
+                    <ng-container *ngIf="loading">
+                        <b>Actualizando datos del usuario</b>
+                      </ng-container>
+                      <ng-container *ngIf="!loading">
+                        <!-- <b>Cargando</b> -->
+                        <button class="btn btn-primary">Editar</button>
+                        <a class="btn btn-info" routerLink="/users/listado">Cancelar</a>
+                      </ng-container>
+                     
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2 col-sm-2 col-2"></div>
+</div>

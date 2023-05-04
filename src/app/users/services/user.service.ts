@@ -21,4 +21,16 @@ export class UserService {
     return this.http.post(`https://apilaravel.ventas.fun/api/v1/user`, data);
   }
 
+  getUserPorId(id:any): Observable<any>{
+    return this.http.get(`https://apilaravel.ventas.fun/api/v1/user/${id}`);
+  }
+
+  updateUser(id:any, data:FormData): Observable<any>{
+    return this.http.post(`https://apilaravel.ventas.fun/api/v1/user/${id}`, data);
+  }
+
+  deleteUser(id:any): Observable<any>{
+    return this.http.delete(`https://apilaravel.ventas.fun/api/v1/user/${id}`);
+  }
+
 }
