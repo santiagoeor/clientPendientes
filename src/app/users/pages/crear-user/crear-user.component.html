@@ -18,7 +18,7 @@
                             placeholder=""
                             formControlName="name">
                         </div>
-                        <span *ngIf="myForm.controls['name'].getError('required') && myForm.controls['email'].touched" >
+                        <span *ngIf="myForm.controls['name'].getError('required') && myForm.controls['name'].touched" >
                             <b style="color: red;">Este campo es requerido</b>
                        </span>
                     </div>
@@ -34,7 +34,10 @@
                             <b style="color: red;">Este campo es requerido</b>
                        </span>
                        <span  *ngIf="myForm.controls['email'].getError('minlength') && myForm.controls['email'].touched">
-                           <b style="color: red;">Este campo requiere mínimo 3 letras</b>
+                           <b style="color: red;">Este campo requiere mínimo 3 letras </b>
+                       </span>
+                       <span  *ngIf="myForm.controls['email'].getError('email') && myForm.controls['email'].touched">
+                           <b style="color: red;">Campo no es de tipo email</b>
                        </span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-6">
@@ -45,7 +48,7 @@
                               placeholder=""
                               formControlName="password">
                         </div>
-                        <span *ngIf="myForm.controls['password'].getError('required') && myForm.controls['email'].touched" >
+                        <span *ngIf="myForm.controls['password'].getError('required') && myForm.controls['password'].touched" >
                             <b style="color: red;">Este campo es requerido</b>
                        </span>
                     </div>
@@ -58,7 +61,7 @@
                             formControlName="fotoUser"
                             (change)="getFile($event)">
                         </div>
-                        <span *ngIf="myForm.controls['fotoUser'].getError('required') && myForm.controls['email'].touched" >
+                        <span *ngIf="myForm.controls['fotoUser'].getError('required') && myForm.controls['fotoUser'].touched" >
                             <b style="color: red;">Este campo es requerido</b>
                        </span>
                     </div>

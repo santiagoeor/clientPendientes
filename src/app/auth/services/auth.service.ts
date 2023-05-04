@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   logout(){
-    return this.http.post<any>('https://apilaravel.ventas.fun/api/v1/logout', {}).subscribe(response => {
+    return this.http.post('https://apilaravel.ventas.fun/api/v1/logout', {}).subscribe(response => {
       this.isAuthenticated = false;
     });
   }

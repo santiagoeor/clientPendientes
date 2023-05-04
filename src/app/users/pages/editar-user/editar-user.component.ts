@@ -21,7 +21,7 @@ export class EditarUserComponent {
 
   public myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.minLength(3), Validators.email]],
     password: ['', [Validators.required]],
     fotoUser: ['', [Validators.required]]
   });

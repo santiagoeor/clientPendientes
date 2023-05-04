@@ -21,15 +21,15 @@ export class UserService {
     return this.http.post(`https://apilaravel.ventas.fun/api/v1/user`, data);
   }
 
-  getUserPorId(id:any): Observable<any>{
+  getUserPorId(id:string|number): Observable<any>{
     return this.http.get(`https://apilaravel.ventas.fun/api/v1/user/${id}`);
   }
 
-  updateUser(id:any, data:FormData): Observable<any>{
+  updateUser(id:string|number, data:FormData): Observable<any>{
     return this.http.post(`https://apilaravel.ventas.fun/api/v1/user/${id}`, data);
   }
 
-  deleteUser(id:any): Observable<any>{
+  deleteUser(id:string|number): Observable<any>{
     return this.http.delete(`https://apilaravel.ventas.fun/api/v1/user/${id}`);
   }
 

@@ -1,38 +1,38 @@
- <!-- <p>listado-users works!</p><br> -->
+<!-- <p>listado-users works!</p><br> -->
 <app-home></app-home>
- 
 
-    <div class="row">
-        <div class="col-md-2 col-sm-2"></div>
-        <div class="col-md-8 col-sm-8 col-12">
-            <!-- <form (ngSubmit)="search()" #searchForm="ngForm">
-                <input type="text" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-              </form> -->
-              <label for="">Buscador</label><br>
-              <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Foto</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let user of users">
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td><img width="50" height="50" src="{{user.fotoUser}}" alt=""></td>
-                    <td>
-                        <!-- <button class="btn" >Edit</button> -->
-                        <a  [routerLink]="['/users/editarUser', user.id]">Edit</a>
-                        <a  [routerLink]="['/users/eliminarUser', user.id]">Elim</a>
-                    
-                    
-                
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-2 col-sm-2"></div>
+
+<div class="row">
+    <div class="col-md-2 col-sm-2"></div>
+    <div class="col-md-8 col-sm-8 col-12">
+        <label for="">Buscador</label><br>
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Foto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td><img width="50" height="50"
+                        src="https://i0.wp.com/www.fotovue.com/wp-content/uploads/2014/11/user.jpg?fit=960%2C960&ssl=1"
+                        alt=""></td>
+                <td>
+                    <!-- <button class="btn" >Edit</button> -->
+                    <a class="btn btn-primary" [routerLink]="['/users/editarUser', user.id]">Edit</a>
+                    <a class="btn btn-danger" [routerLink]="['/users/eliminarUser', user.id]">Elim</a>
+
+                </td>
+
+
+
+            </tbody>
+        </table>
     </div>
+    <div class="col-md-2 col-sm-2"></div>
+</div>

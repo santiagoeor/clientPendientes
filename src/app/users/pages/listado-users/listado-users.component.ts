@@ -26,7 +26,7 @@ export class ListadoUsersComponent {
     })
     const tokenOb = localStorage.getItem('token'); // obtiene el token JWT desde el almacenamiento local
     const token = JSON.parse(tokenOb!);
-    console.log(token.user_id);
+    // console.log(token.user_id);
 
   }
 
