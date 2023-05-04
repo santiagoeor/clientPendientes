@@ -59,7 +59,8 @@ export class EditarUserComponent {
 
       update(){
         const body = new FormData();
-        if(this.myForm.invalid) return;
+        if(this.myForm.invalid) this.myForm.markAllAsTouched();
+        // this.myForm.markAllAsTouched();
         // const credent = this.myForm.value.name;
         if (typeof this.fileTmp !== 'undefined') { 
           body.append('name', this.myForm.value.name);
