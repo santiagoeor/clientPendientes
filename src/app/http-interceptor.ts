@@ -12,7 +12,7 @@ export class MiInterceptor implements HttpInterceptor {
           }
         });
       }
-      console.log(req);
+      // console.log(req);
       return next.handle(req);
     }
   }

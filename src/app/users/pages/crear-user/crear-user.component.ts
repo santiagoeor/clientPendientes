@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from '../../services/user.service';
+import { EmailValidator } from '../../services/email-validator.service';
 
 @Component({
   selector: 'app-crear-user',
@@ -17,14 +18,15 @@ export class CrearUserComponent {
 
   public myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.minLength(3), Validators.email]],
+    email: ['', [Validators.required, Validators.minLength(3), Validators.email], [this.emailValidator]],
     password: ['', [Validators.required]],
     fotoUser: ['', [Validators.required]]
   });
 
   constructor( 
     private fb: FormBuilder,
-    private userService:UserService
+    private userService:UserService,
+    private emailValidator:EmailValidator
      ){}
 
   getFile($event: any){
@@ -45,6 +47,9 @@ export class CrearUserComponent {
   save(){
     const body = new FormData();
     if(this.myForm.invalid) this.myForm.markAllAsTouched();
+    if(this.myForm.controls['email'].getError('emailTaken')) {
+      // console.log('existe');
+    }else{
     // const credent = this.myForm.value.name;
     if (typeof this.fileTmp !== 'undefined') { 
       body.append('name', this.myForm.value.name);
@@ -58,10 +63,15 @@ export class CrearUserComponent {
         this.loading = false;
         this.mensaje = true;
         this.mensajecontent = response.ok;
+        
       })
     }else{
       console.log('data sin imagen');
      }
+
+    }
+
+
   }
 
 

@@ -39,6 +39,9 @@
                        <span  *ngIf="myForm.controls['email'].getError('email') && myForm.controls['email'].touched">
                            <b style="color: red;">Campo no es de tipo email</b>
                        </span>
+                       <span  *ngIf="myForm.controls['email'].getError('emailTaken') && myForm.controls['email'].touched">
+                           <b style="color: red;">Este usuario ya existe</b>
+                       </span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-6">
                         <div class="form-group">
@@ -82,3 +85,9 @@
     </div>
     <div class="col-md-2 col-sm-2 col-2"></div>
 </div>
+<!-- <br>
+<h2>Form Valid: {{ myForm.valid }}</h2><br>
+<h2>Form Status: {{ myForm.status }}</h2>
+<h2>Form Pending: {{ myForm.pending }}</h2>
+<h5>Email</h5>
+<pre>{{  myForm.controls['email'].errors  | json }}</pre> -->

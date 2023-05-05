@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
 
   public myForm: FormGroup  = this.fb.group({
-    email: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
 
@@ -27,12 +27,13 @@ export class LoginComponent {
 
   login(){
     // this.router.navigate(['./users']);
-    if(this.myForm.invalid) return;
+    if(this.myForm.invalid){ this.myForm.markAllAsTouched();
+    }else{
    const credents = this.myForm.value;
     this.loading = true;
    this.restService.login(credents).subscribe(response => {
     
-    console.log(response);
+    // console.log(response);
     this.loading = false;
 
     if(response){
@@ -47,6 +48,8 @@ export class LoginComponent {
    }, error => {
     this.errorMessage = error;
    })
+
+  }
 
     
   }

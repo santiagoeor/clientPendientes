@@ -19,8 +19,9 @@
             <span *ngIf="myForm.controls['email'].getError('required') && myForm.controls['email'].touched" >
                  <b style="color: red;">Este campo es requerido</b>
             </span>
-            <span  *ngIf="myForm.controls['email'].getError('minlength') && myForm.controls['email'].touched">
-                <b style="color: red;">Este campo requiere mínimo 3 letras</b>
+    
+            <span  *ngIf="myForm.controls['email'].getError('email') && myForm.controls['email'].touched">
+                <b style="color: red;">Campo no es de tipo email</b>
             </span>
                      <br>
             <label for="">Password</label><br>
