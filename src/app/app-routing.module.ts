@@ -15,6 +15,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'pendientes',
+    loadChildren: () => import('./pendientes/pendiente.module').then(m => m.PendienteModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./categorias/categoria.module').then(m => m.CategoriaModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'login'
   }

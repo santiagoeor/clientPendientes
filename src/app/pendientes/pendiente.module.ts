@@ -4,6 +4,8 @@ import { CrearPendienteComponent } from './pages/crear-pendiente/crear-pendiente
 import { EditarPendienteComponent } from './pages/editar-pendiente/editar-pendiente.component';
 import { EliminarPendienteComponent } from './pages/eliminar-pendiente/eliminar-pendiente.component';
 import { ListadoPendientesComponent } from './pages/listado-pendientes/listado-pendientes.component';
+import { PendientesRoutingModule } from './pendientes-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -12,10 +14,12 @@ import { ListadoPendientesComponent } from './pages/listado-pendientes/listado-p
     CrearPendienteComponent,
     EditarPendienteComponent,
     EliminarPendienteComponent,
-    ListadoPendientesComponent
+    ListadoPendientesComponent,
+    HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PendientesRoutingModule
   ]
 })
 export class PendienteModule { }

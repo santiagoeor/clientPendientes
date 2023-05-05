@@ -4,6 +4,8 @@ import { CrearCategoriaComponent } from './pages/crear-categoria/crear-categoria
 import { EditarCategoriaComponent } from './pages/editar-categoria/editar-categoria.component';
 import { EliminarCategoriaComponent } from './pages/eliminar-categoria/eliminar-categoria.component';
 import { ListadoCategoriasComponent } from './pages/listado-categorias/listado-categorias.component';
+import { CategoriasRoutingModule } from './categorias-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -12,10 +14,12 @@ import { ListadoCategoriasComponent } from './pages/listado-categorias/listado-c
     CrearCategoriaComponent,
     EditarCategoriaComponent,
     EliminarCategoriaComponent,
-    ListadoCategoriasComponent
+    ListadoCategoriasComponent,
+    HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CategoriasRoutingModule
   ]
 })
 export class CategoriaModule { }
