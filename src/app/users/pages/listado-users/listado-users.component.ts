@@ -13,6 +13,8 @@ export class ListadoUsersComponent {
 
   users: User[] = [];
   searchTerm: string = '';
+  verifiExistUsers: boolean = false;
+  loading: boolean = false;
 
   constructor( 
     private restService: UserService,
@@ -20,20 +22,26 @@ export class ListadoUsersComponent {
 
 
   ngOnInit(): void{
-
+    this.loading = true;
     this.restService.users().subscribe(response => {
-      this.users = response.data;
+
+      if(response.data.length === 0){
+        this.loading = false;
+        this.verifiExistUsers = true;
+      }else{
+        this.loading = false;
+        this.verifiExistUsers = false;
+        this.users = response.data;
+      }
+      
     })
-    const tokenOb = localStorage.getItem('token'); // obtiene el token JWT desde el almacenamiento local
-    const token = JSON.parse(tokenOb!);
-    // console.log(token.user_id);
 
   }
 
   onSearch(){
     this.restService.search(this.searchTerm).subscribe(response => {
           this.users = response;
-          console.log(response);
+          // console.log(response);
         })
   }
 

@@ -24,14 +24,21 @@
                         alt=""></td>
                 <td>
                     <!-- <button class="btn" >Edit</button> -->
-                    <a class="btn btn-primary" [routerLink]="['/users/editarUser', user.id]">Edit</a>
-                    <a class="btn btn-danger" [routerLink]="['/users/eliminarUser', user.id]">Elim</a>
+                    <a class="btn" [routerLink]="['/users/editarUser', user.id]">Edit</a>
+                    <a class="btn" [routerLink]="['/users/eliminarUser', user.id]">Elim</a>
 
                 </td>
-
-
-
             </tbody>
+            <ng-container *ngIf="verifiExistUsers">
+                <div class='alert alert-success'>
+                    No hay users
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="loading">
+                    <div class='alert alert-success'>
+                        Cargando los usuarios
+                    </div>
+                </ng-container>
         </table>
     </div>
     <div class="col-md-2 col-sm-2"></div>

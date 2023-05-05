@@ -11,12 +11,30 @@ export class ListadoCategoriasComponent {
 
   categorias: Categoria[] = [];
   searchTerm: string = '';
+  verifiExistCategor: boolean = false;
+  loading: boolean = false;
 
-  constructor( private catgService:CategoriasService ){}
+  constructor(private catgService: CategoriasService) { }
 
-  ngOnInit(){
+  ngOnInit() {
+    this.loading = true;
     this.catgService.categorias().subscribe(response => {
-      console.log(response);
+      // console.log(response);
+      if (response.length === 0) {
+        this.loading = false;
+        this.verifiExistCategor = true;
+      } else {
+        this.loading = false;
+        this.verifiExistCategor = false;
+        this.categorias = response;
+      }
+
+    })
+  }
+
+  onSearch() {
+    this.catgService.search(this.searchTerm).subscribe(response => {
+      this.categorias = response;
     })
   }
 

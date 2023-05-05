@@ -6,6 +6,7 @@ import { EliminarCategoriaComponent } from './pages/eliminar-categoria/eliminar-
 import { ListadoCategoriasComponent } from './pages/listado-categorias/listado-categorias.component';
 import { CategoriasRoutingModule } from './categorias-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,9 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
-    CategoriasRoutingModule
+    CategoriasRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CategoriaModule { }

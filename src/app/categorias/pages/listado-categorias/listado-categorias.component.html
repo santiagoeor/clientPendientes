@@ -1,2 +1,36 @@
 <app-home></app-home>
-<p>listado-categorias works!</p>
+
+<div class="row">
+    <div class="col-md-2 col-sm-2"></div>
+    <div class="col-md-8 col-sm-8 col-12">
+        <label for="">Buscador</label><br>
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let categoria of categorias">
+                <td>{{ categoria.categoria }}</td>
+                <td>
+                    <a class="btn" [routerLink]="['/categorias/editarCategoria', categoria.catg]">Edit</a>
+                    <a class="btn" [routerLink]="['/categorias/eliminarCategoria', categoria.catg]">Elim</a>
+                </td>
+
+            </tbody>
+            <ng-container *ngIf="verifiExistCategor">
+                <div class='alert alert-success'>
+                    No hay categorías
+                </div>
+            </ng-container>
+            <ng-container *ngIf="loading">
+                <div class='alert alert-success'>
+                    Cargando las categorias
+                </div>
+            </ng-container>
+        </table>
+    </div>
+    <div class="col-md-2 col-sm-2"></div>
+</div>

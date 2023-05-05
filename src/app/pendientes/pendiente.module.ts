@@ -6,6 +6,7 @@ import { EliminarPendienteComponent } from './pages/eliminar-pendiente/eliminar-
 import { ListadoPendientesComponent } from './pages/listado-pendientes/listado-pendientes.component';
 import { PendientesRoutingModule } from './pendientes-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,9 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
-    PendientesRoutingModule
+    PendientesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PendienteModule { }
