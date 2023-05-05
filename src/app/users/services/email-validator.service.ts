@@ -14,7 +14,7 @@ export class EmailValidator implements AsyncValidator {
        return this.http.get<any[]>(`https://apilaravel.ventas.fun/api/v1/validarEmail?email=${ email }`)
             .pipe(
                 map(res => {
-                    console.log(res);
+                    // console.log(res);
                     return (res.length === 0)
                             ? null
                             : { emailTaken: true }
