@@ -11,8 +11,8 @@ import { EmailValidator } from '../../services/email-validator.service';
 export class CrearUserComponent {
 
   private fileTmp:any;
-  loading = false;
-  mensaje = false;
+  loading:boolean = false;
+  mensaje:boolean = false;
   mensajecontent: string = '';
 
 

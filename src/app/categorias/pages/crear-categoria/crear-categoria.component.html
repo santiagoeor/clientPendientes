@@ -1,2 +1,39 @@
 <app-home></app-home>
-<p>crear-categoria works!</p>
+<div class="row">
+    <div class="col-md-2 col-sm-2 col-2"></div>
+    <div class="col-md-8 col-sm-8 col-8">
+        <ng-container *ngIf="mensaje">
+            <div class='alert alert-success'>
+                {{ mensajecontent }}
+             </div>
+            </ng-container>
+        <form [formGroup]="myForm" (ngSubmit)="save()" autocomplete="off">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Categoria</label>
+                            <input type="text" class="form-control" placeholder="" formControlName="categoria">
+                        </div>
+                        <span
+                            *ngIf="myForm.controls['categoria'].getError('required') && myForm.controls['categoria'].touched">
+                            <b style="color: red;">Este campo es requerido</b>
+                        </span>
+                    </div>
+                    <div class="card-footer">
+                        <br>
+                        <ng-container *ngIf="loading">
+                            <b>Registrando la categoria</b>
+                        </ng-container>
+                        <ng-container *ngIf="!loading">
+                            <!-- <b>Cargando</b> -->
+                            <button class="btn btn-primary">Registrar</button>
+                        </ng-container>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2 col-sm-2 col-2"></div>
+</div>

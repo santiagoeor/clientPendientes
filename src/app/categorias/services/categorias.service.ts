@@ -17,4 +17,8 @@ export class CategoriasService {
     return this.http.get(`https://apilaravel.ventas.fun/api/v1/categorias/search?search=${termino}`);
   }
 
+  save(data:string):Observable<any>{
+    return this.http.post(`https://apilaravel.ventas.fun/api/v1/categorias`, data);
+  }
+
 }
