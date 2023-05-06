@@ -1,2 +1,75 @@
 <app-home></app-home>
-<p>crear-pendiente works!</p>
+<div class="row">
+    <div class="col-md-2 col-sm-2 col-2"></div>
+    <div class="col-md-8 col-sm-8 col-8">
+        <ng-container *ngIf="mensaje">
+            <div class='alert alert-success'>
+                {{ mensajecontent }}
+            </div>
+        </ng-container>
+        <form [formGroup]="myForm" (ngSubmit)="save()" autocomplete="off">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Pendiente</label>
+                            <input type="text" class="form-control" placeholder="" formControlName="pendiente">
+                        </div>
+                        <span
+                            *ngIf="myForm.controls['pendiente'].getError('required') && myForm.controls['pendiente'].touched">
+                            <b style="color: red;">Este campo es requerido</b>
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Categoria</label><br>
+                            <select formControlName="categoria_id">
+                                <option value="">Seleccionar una opción</option>
+                                <ng-container *ngFor="let categoria of categorias">
+                                    <option value="{{ categoria.catg }}">{{ categoria.categoria }}</option>
+                                </ng-container>
+
+                            </select>
+                        </div>
+                        <span
+                            *ngIf="myForm.controls['categoria_id'].getError('required') && myForm.controls['categoria_id'].touched">
+                            <b style="color: red;">Este campo es requerido</b>
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Fecha</label><br>
+                            <input type="date" class="form-control" placeholder="" formControlName="fecha">
+                        </div>
+                        <span
+                            *ngIf="myForm.controls['fecha'].getError('required') && myForm.controls['fecha'].touched">
+                            <b style="color: red;">Este campo es requerido</b>
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Hora</label><br>
+                            <input type="time" class="form-control" placeholder="" formControlName="hora">
+                        </div>
+                        <span
+                            *ngIf="myForm.controls['hora'].getError('required') && myForm.controls['hora'].touched">
+                            <b style="color: red;">Este campo es requerido</b>
+                        </span>
+                    </div>
+                    <div class="card-footer">
+                        <br>
+                        <ng-container *ngIf="loading">
+                            <b>Registrando el pendiente</b>
+                        </ng-container>
+                        <ng-container *ngIf="!loading">
+                            <!-- <b>Cargando</b> -->
+                            <button class="btn btn-primary">Registrar</button>
+                        </ng-container>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2 col-sm-2 col-2"></div>
+</div>

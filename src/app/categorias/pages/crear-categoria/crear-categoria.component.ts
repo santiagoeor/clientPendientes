@@ -27,7 +27,7 @@ export class CrearCategoriaComponent {
 
     this.loading = true;
     this.categoriaService.save(this.myForm.value).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.loading = false;
       this.mensaje = true;
       this.mensajecontent = response.ok;
