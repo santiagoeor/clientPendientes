@@ -14,8 +14,8 @@ export class EditarUserComponent {
 
   // users:User[] = [];
   private fileTmp:any;
-  loading = false;
-  mensaje = false;
+  loading:boolean = false;
+  mensaje:boolean = false;
   mensajecontent: string = '';
   users!: User;
 
