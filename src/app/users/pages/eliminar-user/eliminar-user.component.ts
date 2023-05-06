@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs';
 })
 export class EliminarUserComponent {
 
-  loading = false;
+  loading:boolean = false;
   users!: User;
 
   constructor(

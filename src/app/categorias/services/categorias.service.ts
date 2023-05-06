@@ -29,5 +29,9 @@ export class CategoriasService {
     return this.http.put(`https://apilaravel.ventas.fun/api/v1/categorias/${id}`, data);
   }
 
+  deleteCategoria(id:string|number):Observable<any>{
+    return this.http.delete(`https://apilaravel.ventas.fun/api/v1/categorias/${id}`);
+  }
+
 
 }
