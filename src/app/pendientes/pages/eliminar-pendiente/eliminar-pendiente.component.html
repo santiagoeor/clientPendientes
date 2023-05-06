@@ -1,2 +1,32 @@
 <app-home></app-home>
-<p>eliminar-pendiente works!</p>
+<br>
+<div class="content" *ngIf="pendient">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger">
+                    <h3 class="card-title">Confirmar Eliminación </h3>
+                </div>
+                <div class="card-body">
+                    Usted va a eliminar el pendiente con nombre
+                    <b>{{pendient.pendiente}}</b><br>
+                    Presione <b>Aceptar</b> para eliminar. <br><br>
+
+                    <b>Importante</b>. Una vez eliminado no podra recuperarse.
+                </div>
+                <div class="card-footer">
+                    <ng-container *ngIf="loading">
+                        <b>Eliminando Pendiente</b>
+                      </ng-container>
+                    <ng-container *ngIf="!loading">
+                        <button (click)="deletePendiente();" class="btn btn-success">Aceptar</button>
+                        <a class="btn btn-info" routerLink="/pendientes/listado">Cancelar</a>
+                    </ng-container>
+                </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
