@@ -42,11 +42,19 @@ export class CrearPendienteComponent {
     } else {
 
       this.loading = true;
-      this.pendientesService.save(this.myForm.value).subscribe(response => {
+      this.pendientesService.save(this.myForm.value).subscribe({
+        next: (response) => {
         this.loading = false;
         this.mensaje = true;
         this.mensajecontent = response.ok;
-      })
+      },
+      error: (err) => {
+        console.log(err);
+        this.loading = false;
+        this.mensaje = true;
+        this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+      }
+    })
     }
 
 

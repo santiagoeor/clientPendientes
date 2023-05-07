@@ -6,6 +6,11 @@
 
         </div>
         <div class="col-md-6">
+            <ng-container *ngIf="mensaje">
+                <div class='alert alert-success'>
+                    {{ mensajecontent }}
+                 </div>
+                </ng-container>
             <div class="card">
                 <div class="card-header bg-danger">
                     <h3 class="card-title">Confirmar Eliminación </h3>

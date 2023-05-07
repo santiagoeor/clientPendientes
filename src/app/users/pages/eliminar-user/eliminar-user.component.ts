@@ -13,6 +13,9 @@ export class EliminarUserComponent {
 
   loading:boolean = false;
   users!: User;
+  mensaje: boolean = false;
+
+  public mensajecontent!: string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -32,10 +35,18 @@ export class EliminarUserComponent {
 
   deleteUser(){
     this.loading = true;
-    this.userService.deleteUser(this.users.id).subscribe(response => {
+    this.userService.deleteUser(this.users.id).subscribe({
+      next:(response) => {
       this.loading = false;
       this.router.navigate(['./users']);
-    })
+    },
+    error: (err) => {
+      console.log(err);
+      this.loading = false;
+      this.mensaje = true;
+      this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+    }
+  })
   }
 
 }

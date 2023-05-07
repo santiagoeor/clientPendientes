@@ -71,13 +71,21 @@ export class EditarUserComponent {
 
           console.log(body);
           this.loading = true;
-          this.userService.updateUser(this.users.id,body).subscribe(response => {
+          this.userService.updateUser(this.users.id,body).subscribe({
+            next:(response) => {
             console.log(response.ok);
             this.loading = false;
             this.mensaje = true;
             this.mensajecontent = response.ok;
             this.router.navigate(['./users']);
-          })
+          },
+          error: (err) => {
+            console.log(err);
+            this.loading = false;
+            this.mensaje = true;
+            this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+          }
+        })
         }else{
           console.log('data sin imagen');
          }

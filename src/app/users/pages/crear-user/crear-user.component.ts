@@ -58,13 +58,20 @@ export class CrearUserComponent {
       body.append('fotoUser', this.fileTmp.fileRaw);
       console.log(body);
       this.loading = true;
-      this.userService.save(body).subscribe(response => {
-        console.log(response.ok);
+      this.userService.save(body).subscribe({
+        next:(response) => {
+        // console.log(response.ok);
         this.loading = false;
         this.mensaje = true;
-        this.mensajecontent = response.ok;
-        
-      })
+        this.mensajecontent = response.ok;   
+      },
+      error: (err) => {
+        console.log(err);
+        this.loading = false;
+        this.mensaje = true;
+        this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+      }
+    })
     }else{
       console.log('data sin imagen');
      }

@@ -13,6 +13,9 @@ export class EliminarCategoriaComponent {
 
   loading:boolean = false;
   categori!: Categoria;
+  mensaje: boolean = false;
+
+  public mensajecontent!: string;
 
   constructor( 
     private activateRoute: ActivatedRoute,
@@ -32,11 +35,18 @@ export class EliminarCategoriaComponent {
 
   deleteCategoria(){
     this.loading = true;
-    this.categoriaService.deleteCategoria(this.categori.catg).subscribe(response => {
-      console.log(response);
+    this.categoriaService.deleteCategoria(this.categori.catg).subscribe({
+      next: (response) => {
       this.loading = false;
       this.router.navigate(['/categorias']);
-    })
+    },
+    error: (err) => {
+      console.log(err);
+      this.loading = false;
+      this.mensaje = true;
+      this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+    }
+  })
 
   }
 

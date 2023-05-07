@@ -42,12 +42,20 @@ export class EditarCategoriaComponent {
   update(){
     if(this.myForm.invalid) this.myForm.markAllAsTouched();
     this.loading = true;
-    this.categoriaService.update(this.categori.catg, this.myForm.value).subscribe(response => {
+    this.categoriaService.update(this.categori.catg, this.myForm.value).subscribe({
+      next: (response) => {
       this.loading = false;
       this.mensaje = true;
       this.mensajecontent = response.ok;
       this.router.navigate(['./categorias']);
-    })
+    },
+    error: (err) => {
+      console.log(err);
+      this.loading = false;
+      this.mensaje = true;
+      this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+    }
+  })
   }
 
 }

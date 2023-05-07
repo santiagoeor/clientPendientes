@@ -20,7 +20,7 @@ export class CrearCategoriaComponent {
 
   constructor(
     private fb: FormBuilder,
-    private categoriaService: CategoriasService
+    private categoriaService: CategoriasService,
   ) { }
 
   
@@ -39,6 +39,8 @@ export class CrearCategoriaComponent {
       error: (err) => {
         console.log(err);
         this.loading = false;
+        this.mensaje = true;
+        this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
       }
     })
   }

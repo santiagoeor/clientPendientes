@@ -13,6 +13,9 @@ export class EliminarPendienteComponent {
 
   loading:boolean = false;
   pendient!: Pendientes;
+  mensaje: boolean = false;
+
+  public mensajecontent!: string;
 
   constructor(
     private activateRoute:ActivatedRoute,
@@ -32,11 +35,19 @@ export class EliminarPendienteComponent {
 
   deletePendiente(){
     this.loading = true;
-    this.pendienteService.delete(this.pendient.pend).subscribe(response => {
+    this.pendienteService.delete(this.pendient.pend).subscribe({
+      next: (response) => {
       // console.log(response);
       this.loading = false;
       this.router.navigate(['/pendientes']);
-    })
+    },
+    error: (err) => {
+      console.log(err);
+      this.loading = false;
+      this.mensaje = true;
+      this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+    }
+  })
 
   }
 
