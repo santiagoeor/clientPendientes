@@ -11,7 +11,8 @@ export class CrearCategoriaComponent {
 
   loading: boolean = false;
   mensaje: boolean = false;
-  mensajecontent: string = '';
+
+  public mensajecontent!: string;
 
   public myForm: FormGroup = this.fb.group({
     categoria: ['', [Validators.required]]
@@ -22,15 +23,23 @@ export class CrearCategoriaComponent {
     private categoriaService: CategoriasService
   ) { }
 
-  save() {
-    if (this.myForm.invalid) this.myForm.markAllAsTouched();
+  
 
+  
+
+    save() {
+    if (this.myForm.invalid) this.myForm.markAllAsTouched();
     this.loading = true;
-    this.categoriaService.save(this.myForm.value).subscribe(response => {
-      // console.log(response);
-      this.loading = false;
-      this.mensaje = true;
-      this.mensajecontent = response.ok;
+    this.categoriaService.save(this.myForm.value).subscribe({
+      next: (response) => {
+        this.loading = false;
+        this.mensaje = true;
+        this.mensajecontent = response.ok;
+      },
+      error: (err) => {
+        console.log(err);
+        this.loading = false;
+      }
     })
   }
 
