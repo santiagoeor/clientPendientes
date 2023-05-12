@@ -7,6 +7,11 @@
                 No tienes conexion a internet
              </div>
             </ng-container>
+        <ng-container *ngIf="!conexion">
+            <div class='alert alert-danger'>
+                tienes internet
+             </div>
+            </ng-container>
     </div>
     <div class="col-md-6 col-sm-6 col-6"><h1>Zona De Categorías</h1></div>
     <div class="col-md-2 col-sm-2 col-2"><button class="btn btn-primary" (click)="logout()" >Cerrar Cesión</button></div>
