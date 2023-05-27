@@ -12,17 +12,17 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./users/user.module').then(m => m.UserModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'pendientes',
     loadChildren: () => import('./pendientes/pendiente.module').then(m => m.PendienteModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'categorias',
     loadChildren: () => import('./categorias/categoria.module').then(m => m.CategoriaModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

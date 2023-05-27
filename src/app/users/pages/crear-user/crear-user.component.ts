@@ -60,7 +60,7 @@ export class CrearUserComponent {
       this.loading = true;
       this.userService.save(body).subscribe({
         next:(response) => {
-        // console.log(response.ok);
+        console.log(response);
         this.loading = false;
         this.mensaje = true;
         this.mensajecontent = response.ok;   

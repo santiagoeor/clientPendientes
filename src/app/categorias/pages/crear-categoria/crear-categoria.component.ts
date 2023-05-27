@@ -33,12 +33,13 @@ export class CrearCategoriaComponent implements OnInit {
 
     fromEvent(window, 'online').pipe(
       debounceTime(100)).subscribe((event: Event) => {
-        // console.log(event);
+        
         let categorias = [];
         const categoriasGuardadas = localStorage.getItem("categorias");
         if (categoriasGuardadas) {
           categorias = JSON.parse(categoriasGuardadas);
         }
+
 
         categorias.forEach((categoria: any) => {
           this.loading = true;
@@ -59,8 +60,7 @@ export class CrearCategoriaComponent implements OnInit {
             }
           })
         });
-
-
+        
 
       });
   }
@@ -80,15 +80,15 @@ export class CrearCategoriaComponent implements OnInit {
         console.log(err);
         this.loading = false;
         this.mensaje = true;
-        this.mensajecontent = 'Su sesion a expirado o no tienes conexion a internet';
+        this.mensajecontent = 'Se ha guardado de manera local';
         this.dataSinConexion = this.myForm.value;
-        // const categoriasSinc = JSON.stringify(this.dataSinConexion);
-        // localStorage.setItem("categorias", categoriasSinc);
+        
         let categorias = [];
         const categoriasGuardadas = localStorage.getItem("categorias");
         if (categoriasGuardadas) {
           categorias = JSON.parse(categoriasGuardadas);
         }
+        // let categorias = this.categoriaLocal.getCategorias();
         categorias.push(this.dataSinConexion);
         localStorage.setItem("categorias", JSON.stringify(categorias));
 
